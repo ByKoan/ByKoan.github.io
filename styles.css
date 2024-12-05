@@ -1,6 +1,9 @@
-background-color: black;
+body{
+  background-color: black;
+}
 
-.class {
+.intro {
   background-color: red;
   color: black;
+  text-align: center;
 }
