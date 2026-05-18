@@ -1,42 +1,294 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | Dev</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Hello! Welcome to my portfolio!</h1>
-            <p>You can explore about my github here: <a href="https://github.com/bykoan" target="_blank">GitHub</a>.</p>
+
+<!-- FX -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="grid-bg"></div>
+<div class="scanline"></div>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><span>~/</span>dev<span>.portfolio</span></div>
+  <ul class="nav-links">
+    <li><a href="#sobre" data-num="01" class="nav-a">Sobre mí</a></li>
+    <li><a href="#proyectos" data-num="02" class="nav-a">Proyectos</a></li>
+    <li><a href="#experiencia" data-num="03" class="nav-a">Experiencia</a></li>
+    <li><a href="#habilidades" data-num="04" class="nav-a">Habilidades</a></li>
+    <li><a href="#contacto" data-num="05" class="nav-a">Contacto</a></li>
+  </ul>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('es')">ES</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <p class="hero-tag" data-i18n="hero.tag">Desarrollador Full Stack</p>
+  <h1 class="hero-title">
+    <span data-i18n="hero.line1">Construyo</span><br>
+    <span class="highlight" data-i18n="hero.line2">experiencias</span><br>
+    <span class="dim" data-i18n="hero.line3">digitales.</span>
+  </h1>
+  <p class="hero-sub" data-i18n="hero.sub">Apasionado del código limpio, las interfaces bien construidas y los sistemas que escalan. Transformo ideas en productos que funcionan de verdad.</p>
+  <div class="hero-ctas">
+    <a href="#proyectos" class="btn-primary" data-i18n="hero.cta1">Ver proyectos</a>
+    <a href="#contacto" class="btn-outline" data-i18n="hero.cta2">Hablemos</a>
+  </div>
+</section>
+
+<!-- TERMINAL (decorativo) -->
+<div class="terminal">
+  <div class="terminal-bar">
+    <div class="term-dot"></div>
+    <div class="term-dot"></div>
+    <div class="term-dot"></div>
+  </div>
+  <div class="terminal-body" id="termBody">
+    <div><span class="t-green">~/portfolio</span> <span class="t-dim">$</span> <span class="t-white" id="termLine1"></span></div>
+  </div>
+</div>
+
+<!-- SOBRE MÍ -->
+<section id="sobre">
+  <div class="section-header reveal">
+    <span class="section-num" data-i18n="about.num">01 // sobre mí</span>
+    <h2 class="section-title" data-i18n="about.title">Un poco sobre mí</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p data-i18n="about.p1">Soy un desarrollador <span class="keyword">full stack</span> con más de 5 meses de experiencia construyendo aplicaciones web y de escritorio / movil robustas y escalables. Me especializo en el ecosistema <span class="keyword">Multiplataforma</span>, tanto en frontend como en backend.</p>
+      <p data-i18n="about.p2">Me apasiona escribir código <span class="keyword">limpio y mantenible</span>, colaborar en equipo, y estar siempre aprendiendo nuevas tecnologías. Creo firmemente en que la mejor tecnología es aquella que el usuario ni nota.</p>
+      <p data-i18n="about.p3">Cuando no estoy programando, me encontrarás leyendo sobre <span class="keyword">arquitectura de software</span>, contribuyendo a proyectos open source, o tomando café mientras depuro código.</p>
+    </div>
+    <div class="about-stats reveal">
+      <div class="stat-card">
+        <div class="stat-num">5+</div>
+        <div class="stat-label" data-i18n="about.stat1">meses de experiencia</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">3+</div>
+        <div class="stat-label" data-i18n="about.stat2">proyectos completados</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">8</div>
+        <div class="stat-label" data-i18n="about.stat3">tecnologías principales</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">∞</div>
+        <div class="stat-label" data-i18n="about.stat4">ganas de aprender</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROYECTOS -->
+<section id="proyectos">
+  <div class="section-header reveal">
+    <span class="section-num" data-i18n="projects.num">02 // proyectos</span>
+    <h2 class="section-title" data-i18n="projects.title">Proyectos destacados</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card reveal">
+      <div class="project-top">
+        <div class="project-icon">⚡</div>
+        <div class="project-links">
+          <a href="#" class="project-link">GitHub</a>
         </div>
-    </header>
-    <main>
-        <section class="about">
-            <h2>About me</h2>
-            <p>¡ this page is under building !</p>
-            <p>I'm learning about low devel development learning C & Assembly x86. Also im studying Java from a superior grade.</p>
-        </section>
-        <section class="projects">
-            <h2>Some proyects i did:</h2>
-            <div class="project">
-                <h3>Proyect 1</h3>
-                <p>Python Youtube Downloader. <a href="https://github.com/ByKoan/Youtube-Donwloader" target="_blank">See in GitHub</a>.</p>
-            </div>
-            <div class="project">
-                <h3>Proyect 2</h3>
-                <p>Password Generators <a href="https://github.com/ByKoan/PasswordsGenerator" target="_blank">See in GitHub</a>.</p>
-            </div>
-        </section>
-        <section class="Contact">
-            <h2>Contact</h2>
-            <p>You can contact me here: <a href="Contact.html">Contacto</a></p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Koan.</p>
-    </footer>
+      </div>
+      <div class="project-name" data-i18n="proj1.name">PulseStream</div>
+      <div class="project-desc" data-i18n="proj1.desc">Servidor de reproduccion de Musica estilo Spotify privado con conexion a plataformas como YouTube.</div>
+      <div class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">HTML/CSS/JS</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">Docker</span>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-top">
+        <div class="project-icon">🤖</div>
+        <div class="project-links">
+          <a href="#" class="project-link">GitHub</a>
+        </div>
+      </div>
+      <div class="project-name" data-i18n="proj2.name">CoffeeCode</div>
+      <div class="project-desc" data-i18n="proj2.desc">Editor de codigo totalmente personalizable echo en C (Actualmente en progreso)</div>
+      <div class="project-tags">
+        <span class="tag">C</span>
+        <span class="tag">HTML/CSS/JS</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">SDL</span>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-top">
+        <div class="project-icon">🏋️‍♂️</div>
+        <div class="project-links">
+          <a href="#" class="project-link">GitHub</a>
+        </div>
+      </div>
+      <div class="project-name" data-i18n="proj3.name">RagePower (Rage)</div>
+      <div class="project-desc" data-i18n="proj3.desc">Plataforma online para llevar progresion/rutinas/bloques de entrenamiento general dandole especial enfoque al deporte "Powerlifting" para entrenadores/atletas (Actualmente en progreso).</div>
+      <div class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">MongoDB</span>
+        <span class="tag">HTML/CSS/JS</span>
+        <span class="tag">Flutter</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCIA -->
+<section id="experiencia">
+  <div class="section-header reveal">
+    <span class="section-num" data-i18n="exp.num">03 // experiencia</span>
+    <h2 class="section-title" data-i18n="exp.title">Trayectoria profesional</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date" data-i18n="exp1.date">Febrero 2026 — Junio 2026</div>
+      <div class="timeline-role" data-i18n="exp1.role">IoT Researcher & Developer</div>
+      <div class="timeline-company" data-i18n="exp1.company">Air Institute · Presencial</div>
+      <div class="timeline-desc" data-i18n="exp1.desc">Desarrollo de programas relacionados con sensores de dispositivos IoT, análisis de datos de sensores y gestión de bases de datos relacionales y no relacionales.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date" data-i18n="exp2.date">Septiembre 2025 — Junio 2027</div>
+      <div class="timeline-role" data-i18n="exp2.role">Grado Superior - Desarrollo de Aplicaciones Multiplataforma</div>
+      <div class="timeline-company" data-i18n="exp2.company">Presencial</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date" data-i18n="exp3.date">Marzo 2024 — Junio 2024</div>
+      <div class="timeline-role" data-i18n="exp3.role">Técnico Reparador de Sistemas MicroInformáticos y Redes</div>
+      <div class="timeline-company" data-i18n="exp3.company">Universo Digital Segovia · Presencial</div>
+      <div class="timeline-desc" data-i18n="exp3.desc">Reparación y mantenimiento de equipos informáticos, redes y otros aparatos tecnológicos.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date" data-i18n="exp4.date">Septiembre 2022 — Junio 2024</div>
+      <div class="timeline-role" data-i18n="exp4.role">Grado Medio - Sistemas MicroInformáticos y Redes</div>
+      <div class="timeline-company" data-i18n="exp4.company">Presencial</div>
+    </div>
+  </div>
+</section>
+
+<!-- HABILIDADES -->
+<section id="habilidades">
+  <div class="section-header reveal">
+    <span class="section-num" data-i18n="skills.num">04 // habilidades</span>
+    <h2 class="section-title" data-i18n="skills.title">Stack tecnológico</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="skills-container">
+    <div class="skill-group reveal">
+      <h3 data-i18n="skills.frontend">Frontend</h3>
+      <div class="skill-item">
+        <div class="skill-header"><span class="skill-name">JavaScript/Node</span><span class="skill-pct">80%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-pct="92"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header"><span class="skill-name">HTML</span><span class="skill-pct">88%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-pct="88"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header"><span class="skill-name">CSS</span><span class="skill-pct">85%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-pct="85"></div></div>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <h3 data-i18n="skills.backend">Backend</h3>
+      <div class="skill-item">
+        <div class="skill-header"><span class="skill-name">High Level Languajes</span><span class="skill-pct">80%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-pct="80"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header"><span class="skill-name">Low Level Languajes</span><span class="skill-pct">80%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-pct="80"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header"><span class="skill-name">SQL & NoSQL DataBases</span><span class="skill-pct">75%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-pct="75"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header"><span class="skill-name">Graphical interfaces</span><span class="skill-pct">70%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-pct="70"></div></div>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <h3 data-i18n="skills.devops">DevOps & Herramientas</h3>
+      <div class="skill-item">
+        <div class="skill-header"><span class="skill-name">Docker</span><span class="skill-pct">80%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-pct="80"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header"><span class="skill-name">Grafana</span><span class="skill-pct">50%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-pct="50"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header"><span class="skill-name">Git</span><span class="skill-pct">95%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-pct="95"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="section-header reveal">
+    <span class="section-num" data-i18n="contact.num">05 // contacto</span>
+    <h2 class="section-title" data-i18n="contact.title">Hablemos</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <p data-i18n="contact.sub">Estoy abierto a nuevas oportunidades, colaboraciones o simplemente a una buena conversación sobre tecnología. Envíame un mensaje y te respondo en menos de 24h.</p>
+      <div class="contact-links">
+        <a href="mailto:officialbykoan@gmail.com" class="contact-link">
+          <span class="contact-link-icon">✉</span>
+          <span>officialbykoan@gmail.com</span>
+        </a>
+        <a href="https://github.com/ByKoan" target="_blank" class="contact-link">
+          <span class="contact-link-icon">⌥</span>
+          <span>https://github.com/ByKoan</span>
+        </a>
+        <a href="https://www.linkedin.com/in/diego-velasco-ayuso-8539982a6" target="_blank" class="contact-link">
+          <span class="contact-link-icon">⊞</span>
+          <span>linkedin.com/in/diego-velasco-ayuso-8539982a6</span>
+        </a>
+        <a href="#" class="contact-link">
+          <span class="contact-link-icon">◎</span>
+          <span>Segovia, España</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p data-i18n="footer">Diseñado y construido por <span>Diego Velasco Ayuso</span> · 2026</p>
+
+</footer>
+
+<script src="main.js"></script>
 </body>
 </html>
