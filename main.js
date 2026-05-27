@@ -254,3 +254,58 @@ window.addEventListener('scroll', () => {
     a.style.color = href === cur ? 'var(--accent)' : '';
   });
 });
+
+// ── COLOR PICKER ──────────────────────────────────────────────
+const colorPickerBtn = document.getElementById('colorPickerBtn');
+const colorPalette   = document.getElementById('colorPalette');
+const colorDot       = document.getElementById('colorDot');
+const root           = document.documentElement;
+
+colorPickerBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  colorPalette.classList.toggle('open');
+});
+
+document.addEventListener('click', () => colorPalette.classList.remove('open'));
+colorPalette.addEventListener('click', e => e.stopPropagation());
+
+function applyAccent(hex, glow) {
+  root.style.setProperty('--accent', hex);
+  root.style.setProperty('--glow', `0 0 20px rgba(${glow},0.15)`);
+  // Update grid bg lines
+  document.querySelectorAll('.grid-bg').forEach(el => {
+    el.style.backgroundImage = `
+      linear-gradient(rgba(${glow},0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(${glow},0.03) 1px, transparent 1px)
+    `;
+  });
+  // Update cursor ring
+  document.querySelectorAll('.cursor-ring').forEach(el => {
+    el.style.borderColor = `rgba(${glow},0.4)`;
+  });
+  // Update scanline
+  document.querySelectorAll('.scanline').forEach(el => {
+    el.style.background = `linear-gradient(90deg, transparent, rgba(${glow},0.15), transparent)`;
+  });
+  // Update orb1
+  const orb1 = document.querySelector('.orb1');
+  if (orb1) orb1.style.background = hex;
+  // Update color dot
+  colorDot.style.background = hex;
+  colorDot.style.boxShadow = `0 0 6px ${hex}`;
+  // Mark active swatch
+  document.querySelectorAll('.swatch').forEach(s => {
+    s.classList.toggle('active', s.dataset.color === hex);
+  });
+  colorPalette.classList.remove('open');
+}
+
+document.querySelectorAll('.swatch').forEach(swatch => {
+  swatch.addEventListener('click', () => {
+    applyAccent(swatch.dataset.color, swatch.dataset.glow);
+  });
+});
+
+// Mark default swatch
+document.querySelector('.swatch[data-color="#00ff88"]')?.classList.add('active');
+
